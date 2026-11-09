@@ -245,6 +245,17 @@
         "description": null,
         "fk_target_col_id": "<col:pagila.public.category.category_id>",
         "fk_target_table_id": "<table:pagila.public.category>",
+        "id": "<col:pagila.analytics.category_rollup.category_id>",
+        "is_unique": null,
+        "name": "category_id",
+        "sample_values": null,
+        "table_id": "<table:pagila.analytics.category_rollup>",
+        "table_name": "category_rollup"
+      },
+      {
+        "description": null,
+        "fk_target_col_id": "<col:pagila.public.category.category_id>",
+        "fk_target_table_id": "<table:pagila.public.category>",
         "id": "<col:pagila.public.film_category.category_id>",
         "is_unique": null,
         "name": "category_id",
@@ -273,6 +284,17 @@
         "sample_values": null,
         "table_id": "<table:pagila.public.city>",
         "table_name": "city"
+      },
+      {
+        "description": null,
+        "fk_target_col_id": "<col:pagila.public.film.film_id>",
+        "fk_target_table_id": "<table:pagila.public.film>",
+        "id": "<col:pagila.analytics.film_performance.film_id>",
+        "is_unique": null,
+        "name": "film_id",
+        "sample_values": null,
+        "table_id": "<table:pagila.analytics.film_performance>",
+        "table_name": "film_performance"
       },
       {
         "description": null,
@@ -949,17 +971,6 @@
         "description": null,
         "fk_target_col_id": null,
         "fk_target_table_id": null,
-        "id": "<col:pagila.analytics.category_rollup.category_id>",
-        "is_unique": null,
-        "name": "category_id",
-        "sample_values": null,
-        "table_id": "<table:pagila.analytics.category_rollup>",
-        "table_name": "category_rollup"
-      },
-      {
-        "description": null,
-        "fk_target_col_id": null,
-        "fk_target_table_id": null,
         "id": "<col:pagila.analytics.category_rollup.category_rollup_id>",
         "is_unique": null,
         "name": "category_rollup_id",
@@ -988,17 +999,6 @@
         "sample_values": null,
         "table_id": "<table:pagila.analytics.category_rollup>",
         "table_name": "category_rollup"
-      },
-      {
-        "description": null,
-        "fk_target_col_id": null,
-        "fk_target_table_id": null,
-        "id": "<col:pagila.analytics.film_performance.film_id>",
-        "is_unique": null,
-        "name": "film_id",
-        "sample_values": null,
-        "table_id": "<table:pagila.analytics.film_performance>",
-        "table_name": "film_performance"
       },
       {
         "description": null,
@@ -4406,6 +4406,23 @@
       {
         "foreign_keys": [
           {
+            "source_column": "category_id",
+            "source_sample_values": null,
+            "target_column": "category_id",
+            "target_sample_values": null
+          }
+        ],
+        "queries": [],
+        "relationship_types": [
+          "FOREIGN_KEY"
+        ],
+        "source": "<table:pagila.analytics.category_rollup>",
+        "target": "<table:pagila.public.category>",
+        "via_foreign_key": true
+      },
+      {
+        "foreign_keys": [
+          {
             "source_column": "city_id",
             "source_sample_values": null,
             "target_column": "city_id",
@@ -4472,6 +4489,23 @@
         ],
         "source": "<table:pagila.public.film>",
         "target": "<table:pagila.public.inventory>",
+        "via_foreign_key": true
+      },
+      {
+        "foreign_keys": [
+          {
+            "source_column": "film_id",
+            "source_sample_values": null,
+            "target_column": "film_id",
+            "target_sample_values": null
+          }
+        ],
+        "queries": [],
+        "relationship_types": [
+          "FOREIGN_KEY"
+        ],
+        "source": "<table:pagila.analytics.film_performance>",
+        "target": "<table:pagila.public.film>",
         "via_foreign_key": true
       },
       {
@@ -4918,6 +4952,23 @@
         {
           "foreign_keys": [
             {
+              "source_column": "category_id",
+              "source_sample_values": null,
+              "target_column": "category_id",
+              "target_sample_values": null
+            }
+          ],
+          "queries": [],
+          "relationship_types": [
+            "FOREIGN_KEY"
+          ],
+          "source": "<table:pagila.analytics.category_rollup>",
+          "target": "<table:pagila.public.category>",
+          "via_foreign_key": true
+        },
+        {
+          "foreign_keys": [
+            {
               "source_column": "city_id",
               "source_sample_values": null,
               "target_column": "city_id",
@@ -4984,6 +5035,23 @@
           ],
           "source": "<table:pagila.public.film>",
           "target": "<table:pagila.public.inventory>",
+          "via_foreign_key": true
+        },
+        {
+          "foreign_keys": [
+            {
+              "source_column": "film_id",
+              "source_sample_values": null,
+              "target_column": "film_id",
+              "target_sample_values": null
+            }
+          ],
+          "queries": [],
+          "relationship_types": [
+            "FOREIGN_KEY"
+          ],
+          "source": "<table:pagila.analytics.film_performance>",
+          "target": "<table:pagila.public.film>",
           "via_foreign_key": true
         },
         {
@@ -5192,7 +5260,7 @@
           "description": "A motion picture available for rental.",
           "id": "<table:pagila.public.film>",
           "name": "film",
-          "relationship_count": 5,
+          "relationship_count": 6,
           "schema_id": "<schema:pagila.public>",
           "schema_name": "public",
           "sql_count": 2,
@@ -5349,7 +5417,7 @@
           "description": null,
           "id": "<table:pagila.public.category>",
           "name": "category",
-          "relationship_count": 1,
+          "relationship_count": 2,
           "schema_id": "<schema:pagila.public>",
           "schema_name": "public",
           "sql_count": 1,
@@ -5565,7 +5633,7 @@
           "description": null,
           "id": "<table:pagila.analytics.category_rollup>",
           "name": "category_rollup",
-          "relationship_count": 0,
+          "relationship_count": 1,
           "schema_id": "<schema:pagila.analytics>",
           "schema_name": "analytics",
           "sql_count": 0,
@@ -5587,7 +5655,7 @@
           "description": null,
           "id": "<table:pagila.analytics.film_performance>",
           "name": "film_performance",
-          "relationship_count": 0,
+          "relationship_count": 1,
           "schema_id": "<schema:pagila.analytics>",
           "schema_name": "analytics",
           "sql_count": 0,
@@ -5846,6 +5914,14 @@
       "nodes": [
         {
           "database_id": "<db:pagila>",
+          "id": "<table:pagila.analytics.film_performance>",
+          "name": "film_performance",
+          "relationship_count": 1,
+          "schema_id": "<schema:pagila.analytics>",
+          "table_type": "base table"
+        },
+        {
+          "database_id": "<db:pagila>",
           "id": "<table:pagila.public.film_actor>",
           "name": "film_actor",
           "relationship_count": 2,
@@ -5885,7 +5961,7 @@
           "table_type": "base table"
         }
       ],
-      "total": 5
+      "total": 6
     },
     "exploration.fetch_exploration_related_nodes__semantic": {
       "nodes": [],
